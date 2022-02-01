@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 ## build and deploy your cloud hyper/desktop/disk with onekey dd
-## GPL,Written By MoeClub.org and linux-live.org,moded and enhanced by minlearn (https://github.com/minlearn/onekeydevdeskks/) for 1, ddprogress fix in raw/native bash 2, onekeydevdesk remastering and installing (both local install and cloud dd) as its recovery 3, and for self-contained git mirror/image hosting (both debian and system img) 4, and for multiple machine type and models supports.
+## GPL,Written By MoeClub.org and linux-live.org,moded and enhanced by minlearn (https://github.com/yyqyu/onekeydevdeskks/) for 1, ddprogress fix in raw/native bash 2, onekeydevdesk remastering and installing (both local install and cloud dd) as its recovery 3, and for self-contained git mirror/image hosting (both debian and system img) 4, and for multiple machine type and models supports.
 ## meant to work/tested under debian family linux with bash > 4, ubuntu less than 20.04
 ## usage: ci.sh [[-b 0 ] -h 0] -t onekeydevdesk[,lxcxxx+/lxcxxx++]|lxcxxx|tdl|debianbase  # lxcxxx no+: pure standalone pack mode,+: mergemode into 01-core,++: packmode into 01-core
-## usage: bash <(wget --no-check-certificate -qO- 'https://github.com/minlearn/onekeydevdeskks/raw/master/inst.sh') -t onekeydevdesk | your .gz http/https location
+## usage: bash <(wget --no-check-certificate -qO- 'https://github.com/yyqyu/onekeydevdeskks/raw/master/inst.sh') -t onekeydevdesk | your .gz http/https location
 
 [ "$(id -u)" != 0 ] && exec sudo bash -c "`cat "$0"`" -a "$@"
 [[ "$EUID" -ne '0' ]] && echo "Error:This script must be run as root!" && exit 1
@@ -17,8 +17,8 @@
 # =================================================================
 
 # mirror settings(deb and targetddurl)
-export autoDEBMIRROR1='https://github.com/minlearn/onekeydevdeskks/raw/master'
-export autoIMGMIRROR1='https://github.com/minlearn/onekeydevdeskks/raw/master'
+export autoDEBMIRROR1='https://github.com/yyqyu/onekeydevdeskks/raw/master'
+export autoIMGMIRROR1='https://github.com/yyqyu/onekeydevdeskks/raw/master'
 export FORCEMIRROR='' # force apply a fixed mirror/targetddurl selection to force override autoselectdebmirror results based on -t -m args given,for fix target ddurl,just -t url
 export FORCEMIRRORIMGSIZE='' # force apply a fixed mirror/targetddimgsize to force checktarget results based on -s args given
 export FORCEMIRRORIMGNOSEG='' # force apply the imgfile in both debmirrorsrc and imgmirrorsrc as non-seg git repo style,set to 1 to use common one-piece style
